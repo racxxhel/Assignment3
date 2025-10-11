@@ -35,6 +35,8 @@ The project consists of two main parts:
 │   └── IA3_Fine_Tuning_Loss_3_Epochs.png
 │   └── LoRA_Fine_Tuning_Loss_3_Epochs.png
 └── README.md                  # This README file.
+└── Application_Example_photo_1.png                  # Application Photo Example 1
+└── Application_Example_photo_2.png                  # Application Photo Example 2
 ```
 
 ## Setup and Installation
@@ -78,15 +80,27 @@ Steps:
 3. Update the paths LORA_MODEL_PATH and IA3_MODEL_PATH at the top of the app.py file to point to these checkpoint folders.
 4. Run the Flask app from your terminal (make sure your virtual environment is activated)
 
-## Application
-
-
 ## Results
 Evaluation on the SQuAD v1 validation set revealed that the LoRA fine-tuning strategy substantially outperformed the (IA)³ strategy.
 | Model              | Exact Match (EM) | F1 Score |
 |--------------------|------------------|-----------|
 | **LoRA**           | 62.3841          | 72.8802   |
 | **(IA)³**          | 32.3652          | 41.8148   |
+
+## Application Demonstration
+
+To provide a practical and interactive way to compare the performance of the two fine-tuned models, a simple web application was developed using Flask.
+
+The application allows a user to input any custom context and question. Upon submission, it runs inference with both the LoRA-tuned model and the (IA)³-tuned model and displays their predicted answers side-by-side. Furthermore, the user can provide an optional "True Answer" to see a real-time calculation of the Exact Match (EM) and F1 Score for each model's prediction, offering immediate quantitative feedback on their performance.This provides a direct method for the qualitative "error analysis" and comparison of strategies required by the assignment.
+
+#### Example Usage:
+The user provides a context about the history of NUS and asks a specific question about a date.
+
+![User interface for inputting context, question and optional True Answer](./Application_Example_photo_1.jpg)
+
+The application then displays the predictions from both models. In this example, the LoRA model correctly extracts the full date ("8 october 1949"), achieving a perfect F1 score. In contrast, the (IA)³ model extracts only a partial answer ("1949"), resulting in a lower score. This demonstrates the app's utility in highlighting the nuanced performance differences between the two fine-tuning methods.
+
+![Side-by-side comparison of LoRA and (IA)³ model outputs](./Application_Example_photo_2.jpg)
 
 ## Conclusion:
 This project successfully implemented and compared two distinct parameter-efficient fine-tuning (PEFT) methods such as LoRA and (IA)³ for adapting a pretrained DistilBERT model to the task of extractive question answering. The experimental results clearly demonstrate that LoRA was the superior method for this task, achieving a significantly higher F1 score of 72.88 compared to 41.81 from the (IA)³ model. While LoRA delivered better performance, the (IA)³ method was even more parameter-efficient, highlighting a crucial trade-off between predictive accuracy and the number of trainable parameters. The key takeaway is that the choice of PEFT method is not trivial; for this task, an additive method that learns updates to the model's weights (LoRA) proved more effective than a multiplicative method that rescales existing activations ((IA)³). 
