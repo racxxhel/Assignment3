@@ -1,4 +1,4 @@
-# DSA4213 Assignment 3: Fine-tuning Transformers for Question Answering
+# DSA4213 Assignment 3: Fine-tuning DistilBERT for Question Answering
 By Rachel
 
 ## Project Overview
@@ -78,4 +78,14 @@ Steps:
 1. After running the training notebook, download the final model checkpoint folders
 2. Place these checkpoint folders into a new directory named models/ at the root of your project.
 3. Update the paths LORA_MODEL_PATH and IA3_MODEL_PATH at the top of the app.py file to point to these checkpoint folders.
-4. Run the Flask app from your terminal (make sure your virtual environment is activated):
+4. Run the Flask app from your terminal (make sure your virtual environment is activated)
+
+## Results
+Evaluation on the SQuAD v1 validation set revealed that the LoRA fine-tuning strategy substantially outperformed the (IA)³ strategy.
+| Model              | Exact Match (EM) | F1 Score |
+|--------------------|------------------|-----------|
+| **LoRA**           | 62.3841          | 72.8802   |
+| **(IA)³**          | 32.3652          | 41.8148   |
+
+## Conclusion:
+This project successfully implemented and compared two distinct parameter-efficient fine-tuning (PEFT) methods such as LoRA and (IA)³ for adapting a pretrained DistilBERT model to the task of extractive question answering. The experimental results clearly demonstrate that LoRA was the superior method for this task, achieving a significantly higher F1 score of 72.88 compared to 41.81 from the (IA)³ model. While LoRA delivered better performance, the (IA)³ method was even more parameter-efficient, highlighting a crucial trade-off between predictive accuracy and the number of trainable parameters. The key takeaway is that the choice of PEFT method is not trivial; for this task, an additive method that learns updates to the model's weights (LoRA) proved more effective than a multiplicative method that rescales existing activations ((IA)³). 
