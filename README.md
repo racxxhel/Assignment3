@@ -16,7 +16,8 @@ The project consists of two main parts:
 - Quantitative evaluation using official SQuAD metrics (Exact Match and F1 Score).
 - Qualitative evaluation through a user-friendly Flask web application.
 
-## File Structure
+## Project Structure
+.
 ├── model_comparison.ipynb     # Main Jupyter Notebook for all training and evaluation.
 ├── app.py                     # The backend script for the Flask web application.
 ├── requirements.txt           # A list of required Python packages.
@@ -38,11 +39,9 @@ The project consists of two main parts:
 
 
 ## Setup and Installation
-
 Follow these steps to set up the local environment to run the web application.
 
 **1. Clone the Repository**
-```bash
 git clone https://github.com/racxxhel/Assignment3.git
 cd Assignment3
 
