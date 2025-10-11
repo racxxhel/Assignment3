@@ -96,11 +96,11 @@ The application allows a user to input any custom context and question. Upon sub
 #### Example Usage:
 The user provides a context about the history of NUS and asks a specific question about a date.
 
-![User interface for inputting context, question and optional True Answer](./Application_Example_photo_1.ppg)
+![User interface for inputting context, question and optional True Answer](./Application_Example_photo_1.png)
 
 The application then displays the predictions from both models. In this example, the LoRA model correctly extracts the full date ("8 october 1949"), achieving a perfect F1 score. In contrast, the (IA)³ model extracts only a partial answer ("1949"), resulting in a lower score. This demonstrates the app's utility in highlighting the nuanced performance differences between the two fine-tuning methods.
 
-![Side-by-side comparison of LoRA and (IA)³ model outputs](./Application_Example_photo_2.ppg)
+![Side-by-side comparison of LoRA and (IA)³ model outputs](./Application_Example_photo_2.png)
 
 ## Conclusion:
 This project successfully implemented and compared two distinct parameter-efficient fine-tuning (PEFT) methods such as LoRA and (IA)³ for adapting a pretrained DistilBERT model to the task of extractive question answering. The experimental results clearly demonstrate that LoRA was the superior method for this task, achieving a significantly higher F1 score of 72.88 compared to 41.81 from the (IA)³ model. While LoRA delivered better performance, the (IA)³ method was even more parameter-efficient, highlighting a crucial trade-off between predictive accuracy and the number of trainable parameters. The key takeaway is that the choice of PEFT method is not trivial; for this task, an additive method that learns updates to the model's weights (LoRA) proved more effective than a multiplicative method that rescales existing activations ((IA)³). 
