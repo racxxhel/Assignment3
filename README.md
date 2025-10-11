@@ -22,21 +22,18 @@ The project consists of two main parts:
 ├── model_comparison.ipynb     # Main Jupyter Notebook for all training and evaluation.
 ├── app.py                     # The backend script for the Flask web application.
 ├── requirements.txt           # A list of required Python packages.
-├── clean_notebook.py           # Cleaned the python notebook, with no widget
+├── clean_notebook.py           # Clean python notebook, with no widget
 ├── frontend/                  # Contains all frontend files for the web app.
 │   ├── static/
 │   │   └── css/
 │   │       └── styles.css
 │   └── templates/
 │       └── index.html
-│
 ├── backend/                   # Contains the trained model checkpoints.
 │   ├── results_ia3_final/
 │   └── results_lora_final/
-│
-├── IA3_Fine_Tuning_Loss_3_Epochs.png   # (Generated) Loss plot for the (IA)³ model.
-├── LoRA_Fine_Tuning_Loss_3_Epochs.png  # (Generated) Loss plot for the LoRA model.
-│
+│   └── IA3_Fine_Tuning_Loss_3_Epochs.png
+│   └── LoRA_Fine_Tuning_Loss_3_Epochs.png
 └── README.md                  # This README file.
 ```
 
