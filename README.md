@@ -37,7 +37,7 @@ The project consists of two main parts:
 ├── LoRA_Fine_Tuning_Loss_3_Epochs.png  # (Generated) Loss plot for the LoRA model.
 │
 └── README.md                  # This README file.
-
+```
 
 ## Setup and Installation
 Follow these steps to set up the local environment to run the web application.
