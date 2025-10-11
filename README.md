@@ -17,6 +17,7 @@ The project consists of two main parts:
 - Qualitative evaluation through a user-friendly Flask web application.
 
 ## Project Structure
+```plaintext
 .
 ├── model_comparison.ipynb     # Main Jupyter Notebook for all training and evaluation.
 ├── app.py                     # The backend script for the Flask web application.
@@ -42,11 +43,15 @@ The project consists of two main parts:
 Follow these steps to set up the local environment to run the web application.
 
 **1. Clone the Repository**
+
 git clone https://github.com/racxxhel/Assignment3.git
+
 cd Assignment3
 
 **2. Install Dependencies**
+
 pip install -r requirements.txt
+
 
 How to Run
 There are two main components to this project: reproducing the experiments and running the web app.
