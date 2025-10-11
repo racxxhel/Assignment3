@@ -78,6 +78,9 @@ Steps:
 3. Update the paths LORA_MODEL_PATH and IA3_MODEL_PATH at the top of the app.py file to point to these checkpoint folders.
 4. Run the Flask app from your terminal (make sure your virtual environment is activated)
 
+## Application
+
+
 ## Results
 Evaluation on the SQuAD v1 validation set revealed that the LoRA fine-tuning strategy substantially outperformed the (IA)³ strategy.
 | Model              | Exact Match (EM) | F1 Score |
