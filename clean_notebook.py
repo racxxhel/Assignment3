@@ -1,7 +1,6 @@
 import nbformat
 import sys
 
-# The name of your notebook file
 notebook_filename = 'model_comparison.ipynb'
 
 print(f"Attempting to clean notebook: {notebook_filename}")
