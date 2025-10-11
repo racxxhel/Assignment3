@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QA Model Comparison</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <hgroup>
+            <h1>QA Model Comparison</h1>
+            <h2>Comparing LoRA vs. (IA)³ Fine-Tuned Models</h2>
+        </hgroup>
+        
+        <form method="POST" id="qa-form">
+            <label for="context">Context</label>
+            <textarea id="context" name="context" rows="8" placeholder="Enter the paragraph or context here...">{{ context or '' }}</textarea>
+            
+            <label for="question">Question</label>
+            <input type="text" id="question" name="question" placeholder="Enter your question here..." value="{{ question or '' }}">
+
+            <label for="true_answer">True Answer (Optional)</label>
+            <input type="text" id="true_answer" name="true_answer" placeholder="Provide the ground truth answer to see scores..." value="{{ true_answer or '' }}">
+            
+            <button type="submit" id="submit-btn">Get Answers</button>
+        </form>
+
+        {% if predictions %}
+        <div class="results-container">
+            <h2>Results</h2>
+            <div class="grid">
+                <article>
+                    <header><strong>LoRA Model Prediction:</strong></header>
+                    <p>{{ predictions.lora.text }}</p>
+                    {% if predictions.lora.em is defined %}
+                    <footer>
+                        <small>EM Score: {{ predictions.lora.em }} | F1 Score: {{ "%.4f"|format(predictions.lora.f1) }}</small>
+                    </footer>
+                    {% endif %}
+                </article>
+                
+                <article>
+                    <header><strong>(IA)³ Model Prediction:</strong></header>
+                    <p>{{ predictions.ia3.text }}</p>
+                    {% if predictions.ia3.em is defined %}
+                    <footer>
+                        <small>EM Score: {{ predictions.ia3.em }} | F1 Score: {{ "%.4f"|format(predictions.ia3.f1) }}</small>
+                    </footer>
+                    {% endif %}
+                </article>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+
+    <script>
+        const form = document.getElementById('qa-form');
+        const submitButton = document.getElementById('submit-btn');
+        form.addEventListener('submit', function() {
+            submitButton.setAttribute('aria-busy', 'true');
+            submitButton.textContent = 'Thinking...';
+            submitButton.disabled = true;
+        });
+    </script>
+</body>
+</html>

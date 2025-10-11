@@ -1,0 +1,41 @@
+/* Use flexbox for the grid layout */
+.grid {
+    display: flex;
+    gap: var(--spacing);
+}
+
+/* Make each article a vertical flex container */
+.grid > article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Give an upper padding to the top to ensure boxes aligned */
+.grid > article > footer {
+    margin-top: auto;
+    background-color: var(--card-sectioning-background-color);
+    padding: 0.5rem 1rem;
+    border-top: 1px solid var(--card-border-color);
+}
+
+/* General layout and spacing */
+main.container {
+    max-width: 800px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.results-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* Custom styling for the answer text box */
+article p {
+    background-color: var(--card-background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--card-border-color);
+    white-space: pre-wrap;
+    flex-grow: 1; 
+}
