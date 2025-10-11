@@ -22,6 +22,7 @@ The project consists of two main parts:
 ├── model_comparison.ipynb     # Main Jupyter Notebook for all training and evaluation.
 ├── app.py                     # The backend script for the Flask web application.
 ├── requirements.txt           # A list of required Python packages.
+├── clean_notebook.py           # Cleaned the python notebook, with no widget
 ├── frontend/                  # Contains all frontend files for the web app.
 │   ├── static/
 │   │   └── css/
