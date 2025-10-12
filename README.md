@@ -20,6 +20,7 @@ The project consists of two main parts:
 ```plaintext
 .
 ├── model_comparison.ipynb     # Main Jupyter Notebook for all training and evaluation.
+├── evaluation_examples.ipynb     # Include more evaluation examples for more in depth analysis 
 ├── app.py                     # The backend script for the Flask web application.
 ├── requirements.txt           # A list of required Python packages.
 ├── clean_notebook.py           # Clean python notebook, with no widget
