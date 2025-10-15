@@ -40,6 +40,7 @@ The project is organized into three main components:
 └── README.md                  # This README file.
 └── Application_Example_photo_1.png    # Example photo of the Web App
 └── Application_Example_photo_2.png    # 2nd Example photo of the Web App
+└── Report Analysis     # Report on the experiment 
 ```
 
 ## Setup and Installation
