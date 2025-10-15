@@ -5,9 +5,13 @@ By Rachel
 
 This project explores and implements parameter-efficient fine-tuning (PEFT) techniques to adapt a pretrained Transformer model for a downstream Question Answering (QA) task. The goal is to compare the effectiveness and efficiency of two different PEFT strategies as per the assignment requirements.
 
-The project consists of two main parts:
-1.  **Model Fine-Tuning:** A Jupyter notebook (`model_comparison.ipynb`) that fine-tunes a `distilbert-base-uncased` model on the SQuAD v1 dataset using two distinct methods: **LoRA** and **(IA)³**.
-2.  **Interactive Web Application:** A web app built with **Flask** that allows a user to enter a custom context and question and see the predictions from both fine-tuned models side-by-side for direct comparison.
+The project is organized into three main components:
+
+***Reproducible Training Script*** (`train.py`): This is the primary script for fine-tuning and evaluation. It is designed to be run from the command line to easily reproduce the experimental results reported.
+
+***Interactive Web Application*** (`app.py`): A web app built with Flask that allows a user to perform qualitative analysis by entering a custom context and question and seeing side-by-side predictions from both fine-tuned models.
+
+***Development Notebook** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
 
 ## Features
 - Fine-tuning of `distilbert-base-uncased` on the SQuAD v1 dataset.
@@ -39,42 +43,46 @@ The project consists of two main parts:
 Follow these steps to set up the local environment to run the web application.
 
 **1. Clone the Repository**
-
+```bash
 git clone https://github.com/racxxhel/Assignment3.git
 
 cd Assignment3
+```
 
 **2. Install Dependencies**
-
+```bash
 pip install -r requirements.txt
-
+```
 
 How to Run
 There are two main components to this project: reproducing the experiments and running the web app.
 
 1. Reproducing the Training Experiments
-The entire training and evaluation pipeline is handled by the ![train.py](train.py) script.
+The entire training and evaluation pipeline is handled by the `train.py` script.
 
 Important Note: The full training process is computationally intensive. It is strongly recommended to run this script in a GPU-accelerated environment (e.g., Google Colab, Kaggle).
 
 To train a model, run the script from your terminal with the desired model type:
-# To train and evaluate the LoRA model for 3 epochs
+## To train and evaluate the LoRA model for 3 epochs
+```bash
 python train.py --model_type lora --epochs 3
+```
 
-# To train and evaluate the (IA)3 model for 3 epochs
+## To train and evaluate the (IA)3 model for 3 epochs
+```bash
 python train.py --model_type ia3 --epochs 3
+```
 
 This script will automatically:
 - Download the SQuAD dataset.
-- Perform the hyperparameter sweeps.
-- Train the final LoRA and (IA)³ models for 3 epochs.
+- Train the final LoRA and (IA)³ models for 3 epochs using the optimal hyperparameter.
 - Save the trained model files to backend directory.
 - Print the final evaluation scores.
 
 2. Running the Flask Web App
 The Flask app allows you to interactively test and compare the two fine-tuned models.
 
-**Prerequisite**: You must first run the ![train.py](train.py) script for both lora and ia3 models to generate the required model files in the backend/ directory.
+**Prerequisite**: You must first run the `train.py` script for both lora and ia3 models to generate the required model files in the backend/ directory.
 
 Once models are trained, run the app from your terminal: 
 python app.py
