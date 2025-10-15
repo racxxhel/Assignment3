@@ -5,15 +5,28 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from peft import PeftModel
 import string
 import re
+import os
+
+def get_latest_checkpoint(dir_path: str) -> str:
+    checkpoints = [d for d in os.listdir(dir_path) if d.startswith("checkpoint-")]
+    
+    if not checkpoints:
+        raise ValueError(f"No checkpoints found in {dir_path}")
+    
+    checkpoints = sorted(checkpoints, key=lambda x: int(x.split("-")[1]))
+    
+    latest_checkpoint = checkpoints[-1]
+    
+    return os.path.join(dir_path, latest_checkpoint)
 
 #initialize the Flask application so flask know where to get html and css files
 app = Flask(__name__, template_folder='frontend/templates', static_folder='frontend/static')
 
-# These constants make the script easier to configure and read.
+#these constants make the script easier to configure and read.
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL_CHECKPOINT = "distilbert-base-uncased"
-LORA_MODEL_PATH = "./backend/results_lora_final/" 
-IA3_MODEL_PATH = "./backend/results_ia3_final/"
+LORA_MODEL_PATH = get_latest_checkpoint("./backend/results_lora_final")
+IA3_MODEL_PATH = get_latest_checkpoint("./backend/results_ia3_final")
 
 #helper functions
 def normalize_text(s):
