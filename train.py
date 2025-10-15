@@ -189,6 +189,7 @@ def main():
     
     output_dir = os.path.join("backend", f"results_{args.model_type}_final")
     plot_save_path = os.path.join("backend", f"{args.model_type.upper()}_Fine_Tuning_Loss.png")
+    os.makedirs(os.path.dirname(output_dir), exist_ok=True)
 
     training_args = TrainingArguments(
         output_dir=output_dir,
