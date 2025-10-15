@@ -11,7 +11,7 @@ The project is organized into three main components:
 
 ***Interactive Web Application*** (`app.py`): A web app built with Flask that allows a user to perform qualitative analysis by entering a custom context and question and seeing side-by-side predictions from both fine-tuned models.
 
-***Development Notebook*** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
+***Development Notebook*** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report (`Report Analysis.pdf`).
 
 ## Features
 - Fine-tuning of `distilbert-base-uncased` on the SQuAD v1 dataset.
