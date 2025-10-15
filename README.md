@@ -11,7 +11,7 @@ The project is organized into three main components:
 
 ***Interactive Web Application*** (`app.py`): A web app built with Flask that allows a user to perform qualitative analysis by entering a custom context and question and seeing side-by-side predictions from both fine-tuned models.
 
-***Development Notebook** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
+**Development Notebook** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
 
 ## Features
 - Fine-tuning of `distilbert-base-uncased` on the SQuAD v1 dataset.
@@ -37,6 +37,7 @@ The project is organized into three main components:
 │   └── (This folder will be populated by train.py)
 ├── model_comparison.ipynb     # Inference notebook documenting the development process for report.
 └── README.md                  # This README file.
+└── evaluation_examples.ipynb     #Qualitative evaluation notebook used for report.
 ```
 
 ## Setup and Installation
@@ -68,7 +69,7 @@ To train a model, run the script from your terminal with the desired model type:
 python train.py --model_type lora --epochs 3
 ```
 
-## To train and evaluate the (IA)3 model for 3 epochs
+## To train and evaluate the (IA)³ model for 3 epochs
 ```bash
 python train.py --model_type ia3 --epochs 3
 ```
@@ -82,10 +83,12 @@ This script will automatically:
 2. Running the Flask Web App
 The Flask app allows you to interactively test and compare the two fine-tuned models.
 
-**Prerequisite**: You must first run the `train.py` script for both lora and ia3 models to generate the required model files in the backend/ directory.
+**Prerequisite**: You must first run the `train.py` script for both lora and ia3 models to generate the required model files in the `backend/` directory.
 
 Once models are trained, run the app from your terminal: 
+```bash
 python app.py
+```
 
 ## Results
 Evaluation on the SQuAD v1 validation set revealed that the LoRA fine-tuning strategy substantially outperformed the (IA)³ strategy.
