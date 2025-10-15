@@ -11,7 +11,7 @@ The project is organized into three main components:
 
 ***Interactive Web Application*** (`app.py`): A web app built with Flask that allows a user to perform qualitative analysis by entering a custom context and question and seeing side-by-side predictions from both fine-tuned models.
 
-**Development Notebook** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
+***Development Notebook*** (`model_comparison.ipynb`): This Jupyter Notebook provides a detailed, step-by-step documentation of the original development and experimentation process. It was used to generate the findings for the written report.
 
 ## Features
 - Fine-tuning of `distilbert-base-uncased` on the SQuAD v1 dataset.
@@ -36,8 +36,8 @@ The project is organized into three main components:
 ├── backend/                   # Directory for generated model checkpoints and plots.
 │   └── (This folder will be populated by train.py)
 ├── model_comparison.ipynb     # Inference notebook documenting the development process for report.
+└── evaluation_examples.ipynb     # Qualitative evaluation notebook used for report.
 └── README.md                  # This README file.
-└── evaluation_examples.ipynb     #Qualitative evaluation notebook used for report.
 ```
 
 ## Setup and Installation
@@ -55,13 +55,15 @@ cd Assignment3
 pip install -r requirements.txt
 ```
 
-How to Run
+## How to Run:
+
 There are two main components to this project: reproducing the experiments and running the web app.
 
-1. Reproducing the Training Experiments
+**1. Reproducing the Training Experiments**
+
 The entire training and evaluation pipeline is handled by the `train.py` script.
 
-Important Note: The full training process is computationally intensive. It is strongly recommended to run this script in a GPU-accelerated environment (e.g., Google Colab, Kaggle).
+**Important Note:** The full training process is computationally intensive. It is strongly recommended to run this script in a GPU-accelerated environment (e.g., Google Colab, Kaggle).
 
 To train a model, run the script from your terminal with the desired model type:
 ## To train and evaluate the LoRA model for 3 epochs
@@ -80,7 +82,8 @@ This script will automatically:
 - Save the trained model files to backend directory.
 - Print the final evaluation scores.
 
-2. Running the Flask Web App
+**2. Running the Flask Web App**
+
 The Flask app allows you to interactively test and compare the two fine-tuned models.
 
 **Prerequisite**: You must first run the `train.py` script for both lora and ia3 models to generate the required model files in the `backend/` directory.
@@ -113,4 +116,4 @@ The application displays the predictions from both models. In this example, the 
 ![Side-by-side comparison of LoRA and (IA)³ model outputs](./Application_Example_photo_2.png)
 
 ## Conclusion:
-This project successfully implemented and compared two distinct parameter-efficient fine-tuning (PEFT) methods such as LoRA and (IA)³ for adapting a pretrained DistilBERT model to the task of extractive question answering. The experimental results clearly demonstrate that LoRA was the superior method for this task, achieving a significantly higher F1 score of 72.88 compared to 41.81 from the (IA)³ model. While LoRA delivered better performance, the (IA)³ method was even more parameter-efficient, highlighting a crucial trade-off between predictive accuracy and the number of trainable parameters. The key takeaway is that the choice of PEFT method is not trivial, for this task, an additive method that learns updates to the model's weights (LoRA) proved more effective than a multiplicative method that rescales existing activations ((IA)³). 
+This project successfully implemented and compared two distinct parameter-efficient fine-tuning (PEFT) methods such as LoRA and (IA)³ for adapting a pretrained DistilBERT model to the task of extractive question answering. The experimental results clearly demonstrate that LoRA was the superior method for this task, achieving a significantly higher F1 score of 72.88 compared to 41.81 from the (IA)³ model. While LoRA delivered better performance, the (IA)³ method was even more parameter-efficient, highlighting a crucial trade-off between predictive accuracy and the number of trainable parameters. The key takeaway is that the choice of PEFT method is not trivial, for this task, an additive method that learns updates to the model's weights (LoRA) proved more effective than a multiplicative method that rescales existing activations (IA)³.
