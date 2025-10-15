@@ -38,6 +38,8 @@ The project is organized into three main components:
 ├── model_comparison.ipynb     # Inference notebook documenting the development process for report.
 └── evaluation_examples.ipynb     # Qualitative evaluation notebook used for report.
 └── README.md                  # This README file.
+└── Application_Example_photo_1.png    # Example photo of the Web App
+└── Application_Example_photo_2.png    # 2nd Example photo of the Web App
 ```
 
 ## Setup and Installation
