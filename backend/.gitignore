@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-.venv/
-venv/
-
-#ignoring current results file 
-backend/results_*/
-
-.ipynb_checkpoints/
