@@ -1,3 +1,4 @@
+#import necessary libraries
 import torch
 from flask import Flask, render_template, request
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering
@@ -5,14 +6,16 @@ from peft import PeftModel
 import string
 import re
 
+#initialize the Flask application so flask know where to get html and css files
 app = Flask(__name__, template_folder='frontend/templates', static_folder='frontend/static')
 
-# Configuration constants
-DEVICE = torch.device("cpu")
+# These constants make the script easier to configure and read.
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL_CHECKPOINT = "distilbert-base-uncased"
-LORA_MODEL_PATH = "./backend/results_lora_final/checkpoint-36183" 
-IA3_MODEL_PATH = "./backend/results_ia3_final/checkpoint-36183"
+LORA_MODEL_PATH = "./backend/results_lora_final/" 
+IA3_MODEL_PATH = "./backend/results_ia3_final/"
 
+#helper functions
 def normalize_text(s):
     """Removing articles and punctuation, and standardizing whitespace."""
     def remove_articles(text): return re.sub(r"\b(a|an|the)\b", " ", text)
@@ -58,13 +61,14 @@ def get_answer(context, query, model, tokenizer):
         return "[No answer found in context]"
     return answer
 
+#load both models
 print("Loading models... This may take a moment.")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_CHECKPOINT)
 lora_model = load_model(LORA_MODEL_PATH)
 ia3_model = load_model(IA3_MODEL_PATH)
 print("All models loaded successfully.")
 
-# Routing
+#routing
 @app.route('/', methods=['GET', 'POST'])
 def home():
     predictions = None
