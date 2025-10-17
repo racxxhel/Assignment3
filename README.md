@@ -50,7 +50,7 @@ Follow these steps to set up the local environment to run the web application.
 ```bash
 git clone https://github.com/racxxhel/Comparative-Study-of-LORA-and-IA-3-for-Fine-Tuning-DistilBERT-on-Extractive-Question-Answering.git
 
-cd Assignment3
+cd Comparative-Study-of-LORA-and-IA-3-for-Fine-Tuning-DistilBERT-on-Extractive-Question-Answering
 ```
 
 **2. Install Dependencies**
