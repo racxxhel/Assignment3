@@ -48,7 +48,7 @@ Follow these steps to set up the local environment to run the web application.
 
 **1. Clone the Repository**
 ```bash
-git clone https://github.com/racxxhel/Assignment3.git
+git clone https://github.com/racxxhel/Comparative-Study-of-LORA-and-IA-3-for-Fine-Tuning-DistilBERT-on-Extractive-Question-Answering.git
 
 cd Assignment3
 ```
