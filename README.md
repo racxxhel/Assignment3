@@ -52,8 +52,22 @@ git clone https://github.com/racxxhel/Comparative-Study-of-LORA-and-IA-3-for-Fin
 
 cd Comparative-Study-of-LORA-and-IA-3-for-Fine-Tuning-DistilBERT-on-Extractive-Question-Answering
 ```
+**2. Create a virtual environment named 'venv'**
+```bash
+python -m venv venv
+```
 
-**2. Install Dependencies**
+To activate it
+* On macOS/Linux:
+```bash
+source venv/bin/activate
+```
+* On Windows (Command Prompt):
+```bash
+.\venv\Scripts\activate
+```
+
+**3. Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```
